@@ -64,8 +64,11 @@ export class AppService {
     // 국민건강보험 로그인 페이지로 이동
     await page.goto('https://www.nhis.or.kr/nhis/etc/personalLoginPage.do');
 
+    await page.click(
+      'xpath=//*[@id="panel_login_01"]/div/div[2]/div[1]/div/div/div[3]/a/i',
+    );
     // 간편 인증 로그인 버튼 클릭
-    await page.click('xpath=//*[@id="pc_view"]/div[2]/div[1]/button');
+    // await page.click('xpath=//*[@id="pc_view"]/div[2]/div[1]/button');
 
     // 클릭 후, UI 변경되어 xpath의 요소 접근 가능해질때까지 대기
     await page.waitForSelector('xpath=//input[@data-id="oacx_name"]');
